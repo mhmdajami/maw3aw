@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { siteConfig } from "@/lib/config";
+
+export function Footer() {
+  return <footer className="bg-[#3B3028] text-[#F5F0E8]"><div className="container-site grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]"><div><p className="serif text-4xl tracking-wide">{siteConfig.name}</p><p className="mt-1 text-[9px] font-bold uppercase tracking-[.25em] opacity-60">{siteConfig.tagline}</p><p className="mt-6 max-w-xs text-sm leading-7 opacity-70">{siteConfig.description}</p></div><FooterCol title="Shop" links={[["Dogs","/dogs"],["Cats","/cats"],["Delivery","/contact"],["Returns","/contact"]]} /><FooterCol title="About" links={[["Our Story","/about"],["Contact","/contact"],["Privacy Policy","/about"],["Terms","/about"]]} /><div><p className="eyebrow text-[#D8C5A5]">Find us</p><a href="#" className="mt-5 block text-sm opacity-75 hover:opacity-100">Instagram</a><a href={`https://wa.me/${siteConfig.whatsapp}`} className="mt-3 block text-sm opacity-75 hover:opacity-100">WhatsApp</a></div></div><div className="border-t border-white/10"><div className="container-site flex flex-col gap-2 py-5 text-[11px] opacity-50 md:flex-row md:justify-between"><p>© 2026 {siteConfig.name}. All rights reserved.</p><p>Made for long walks, soft naps & Lebanese homes.</p></div></div></footer>;
+}
+
+function FooterCol({ title, links }: { title: string; links: string[][] }) { return <div><p className="eyebrow text-[#D8C5A5]">{title}</p>{links.map(([label,href], i) => <Link key={i} href={href} className="mt-3 block text-sm opacity-75 hover:opacity-100 first:mt-5">{label}</Link>)}</div> }
