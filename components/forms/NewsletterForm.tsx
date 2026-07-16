@@ -1,0 +1,3 @@
+"use client";
+import { FormEvent, useState } from "react";
+export function NewsletterForm() { const [done,setDone]=useState(false); const submit=(e:FormEvent)=>{e.preventDefault();setDone(true)}; return done ? <p className="rounded-full bg-white/60 px-6 py-4 text-sm font-bold">You’re in. Welcome to the pack!</p> : <form onSubmit={submit} className="flex w-full max-w-xl flex-col gap-3 sm:flex-row"><label className="sr-only" htmlFor="newsletter">Email address</label><input id="newsletter" required type="email" placeholder="Your email address" className="field flex-1 rounded-full"/><button className="btn btn-dark">Subscribe</button></form> }
